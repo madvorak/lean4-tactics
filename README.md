@@ -8,11 +8,10 @@ an arithmetic expression that is a function of such objects,
 a hypothesis in the context,
 or a lemma applied to any of these.
 When one of these words appears twice in the same cell,
-the appearances do not designate the same name or
-the same expression.
+the appearances do not designate the same name or the same expression.
 
-| Logical symbol   | Appears in goal                         | Appears in hypothesis                                                                                                  |
-|------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Logical symbol                        | Appears in goal                         | Appears in hypothesis                                                                                                  |
+|---------------------------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | <code>∀</code>&ensp; (for all)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
 | <code>∃</code>&ensp; (there exists)   | <code>use *expr*</code>                 | <code>cases *expr* with</code> <br><code>  \| intro *new_name* *new_name* => ...</code>                                |
 | <code>→</code>&ensp; (implies)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
@@ -20,3 +19,6 @@ the same expression.
 | <code>∧</code>&ensp; (and)            | <code>constructor</code>                | <code>cases *expr* with</code> <br><code>  \| intro *new_name* *new_name* => ...</code>                                |
 | <code>∨</code>&ensp; (or)             | <code>left</code> or <code>right</code> | <code>cases *expr* with</code> <br><code>  \| inl *new_name* => ...</code> <br><code>  \| inr *new_name* => ...</code> |
 | <code>¬</code>&ensp; (not)            | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
+
+In the left-hand column of the following table, the parts in brackets are optional.
+The effect of these parts is also in brackets in the right-hand column.
