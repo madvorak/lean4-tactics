@@ -13,10 +13,10 @@ the same expression.
 
 | Logical symbol   | Appears in goal                         | Appears in hypothesis                                                                                                  |
 |------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| (for all)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
-| (there exists)   | <code>use *expr*</code>                 | <code>cases *expr* with</code> <br><code>  \| intro *new_name* *new_name* => ...</code>                                |
-| (implies)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
-| (if and only if) | <code>constructor</code>                | <code>rw [*expr*]</code> or <code>rw [← *expr*]</code>                                                                 |
-| (and)            | <code>constructor</code>                | <code>cases *expr* with</code> <br><code>  \| intro *new_name* *new_name* => ...</code>                                |
-| (or)             | <code>left</code> or <code>right</code> | <code>cases *expr* with</code> <br><code>  \| inl *new_name* => ...</code> <br><code>  \| inr *new_name* => ...</code> |
-| (not)            | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
+| <code>∀</code>&ensp; (for all)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
+| <code>∃</code>&ensp; (there exists)   | <code>use *expr*</code>                 | <code>cases *expr* with</code> <br><code>  \| intro *new_name* *new_name* => ...</code>                                |
+| <code>→</code>&ensp; (implies)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
+| <code>↔</code>&ensp; (if and only if) | <code>constructor</code>                | <code>rw [*expr*]</code> or <code>rw [← *expr*]</code>                                                                 |
+| <code>∧</code>&ensp; (and)            | <code>constructor</code>                | <code>cases *expr* with</code> <br><code>  \| intro *new_name* *new_name* => ...</code>                                |
+| <code>∨</code>&ensp; (or)             | <code>left</code> or <code>right</code> | <code>cases *expr* with</code> <br><code>  \| inl *new_name* => ...</code> <br><code>  \| inr *new_name* => ...</code> |
+| <code>¬</code>&ensp; (not)            | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                     |
