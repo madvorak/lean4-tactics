@@ -22,3 +22,8 @@ the appearances do not designate the same name or the same expression.
 
 In the left-hand column of the following table, the parts in brackets are optional.
 The effect of these parts is also in brackets in the right-hand column.
+
+| Tactic                                           | Effect                                                                                                                                                                                                                             |
+|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>rw [*expr*]</code> (<code>at *hyp*</code>) | in the goal (or in the hypothesis <code>*hyp*</code>), replace (all occurrences of) the left-hand side (or the right-hand side, if <code>←</code> is present) of the equality or equivalence <code>*expr*</code> by its other side |
+| <code>have *new_name* : *proposition*</code>     |                                                                                                                                                                                                                                    |
