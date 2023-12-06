@@ -1,0 +1,51 @@
+# Tàctiques Lean 4 per principiants
+
+En les taules que segueixen, <code>*nom*</code> sempre fa referència a un nom que Lean ja coneix
+mentre que <code>*nom_nou*</code> és un nom nou que podem escollir;
+<code>*expr*</code> denota una expressió,
+per exemple el nom d'un objecte en el context,
+una expressió aritmètica que depèn d'aquests objectes,
+una hipòtesi que tenim al context,
+o un lema aplicat a qualsevol d'aquests;
+<code>*proposició*</code> és una expressió de l'estil <code>Prop</code> (e.g. <code>0 < x</code>). 
+Quan una d'aquestes paraules apareix dues vegades a la mateixa cel·la,
+no vol dir que els noms o expressions hagin de ser les mateixes.
+
+| Símbol lògic                        | Apareix a l'objectiu                        | Apareix en una hipòtesi                                                                                                           |
+|---------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| <code>∀</code>&ensp; (per tot)        | <code>intro *nom_nou*</code>           | <code>apply *expr*</code> o <code>specialize *nom* *expr*</code>                                                     <tr></tr>|
+| <code>∃</code>&ensp; (existeix)   | <code>use *expr*</code>                 | <code>cases *expr* with</code> <br><code>  \| intro *nom_nou* *nom_nou* => ...</code>                                <tr></tr>|
+| <code>→</code>&ensp; (implica)        | <code>intro *nom_nou*</code>           | <code>apply *expr*</code> o <code>specialize *nom* *expr*</code>                                                     <tr></tr>|
+| <code>↔</code>&ensp; (si i només si) | <code>constructor</code>                | <code>rw [*expr*]</code> o <code>rw [←*expr*]</code>                                                                 <tr></tr>|
+| <code>∧</code>&ensp; (i)            | <code>constructor</code>                | <code>cases *expr* with</code> <br><code>  \| intro *nom_nou* *nom_nou* => ...</code>                                <tr></tr>|
+| <code>∨</code>&ensp; (o)             | <code>left</code> or <code>right</code> | <code>cases *expr* with</code> <br><code>  \| inl *nom_nou* => ...</code> <br><code>  \| inr *nom_nou* => ...</code> <tr></tr>|
+| <code>¬</code>&ensp; (no)            | <code>intro *nom_nou*</code>           | <code>apply *expr*</code> o <code>specialize *nom* *expr*</code>                                                              |
+
+A l'esquerra de la taula següent les parts entre parèntesis són opcionals.
+L'efecte d'aquestes parts també està escrit entre parèntesis.
+
+| Tàctica                                                      | Efecte                                                                                                                                                                                                                                      |
+|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>exact *expr*</code>                                   | demostra que l'objectiu es pot provar amb <code>*expr*</code>                                                                                                                                                                       <tr></tr>|
+| <code>refine</code>                                         | TODO                                                                                                                                                                                                                               <tr></tr>|
+| <code>convert *expr*</code>                                 | prove the goal by transforming it to an existing fact <code>*expr*</code> and create goals for propositions used in the transformation that were not proved automatically                                                          <tr></tr>|
+| <code>convert_to *proposition*</code>                       | transform the goal into the goal <code>*proposition*</code> and create additional goals for propositions used in the transformation that were not proved automatically                                                             <tr></tr>|
+| <code>have *nom_nou* : *proposition*</code>                | introduce a name <code>*nom_nou*</code> asserting that <code>*proposition*</code> is true; at the same time, create and focus a goal for <code>*proposition*</code>                                                               <tr></tr>|
+| <code>unfold *nom*</code>&ensp;(<code>at *hyp*</code>)     | unfold the definition of <code>*nom*</code> in the goal (or in the hypothesis <code>*hyp*</code>)                                                                                                                                 <tr></tr>|
+| <code>rw [*expr*]</code>&ensp;(<code>at *hyp*</code>)       | in the goal (or in the hypothesis <code>*hyp*</code>), replace (all occurrences of) the left-hand side of the equality or equivalence <code>*expr*</code> by its right-hand side                                                   <tr></tr>|
+| <code>rw [←*expr*]</code>&ensp;(<code>at *hyp*</code>)      | in the goal (or in the hypothesis <code>*hyp*</code>), replace (all occurrences of) the right-hand side of the equality or equivalence <code>*expr*</code> by its left-hand side                                                   <tr></tr>|
+| <code>rw [*expr*, *expr*, ←*expr*, ←*expr*, *expr*]</code>  | perform several rewritings in a sequence (can again be used in the goal or in given hypothesis; any subset of <code>*expr*</code> can again be applied from right to left)                                                         <tr></tr>|
+| <code>calc</code>                                           | start a proof by calculation (i.e., a sequence of propositions that, when combined together using transitivity, will prove the current goal)                                                                                       <tr></tr>|
+| <code>gcongr</code>                                         | TODO                                                                                                                                                                                                                               <tr></tr>|
+| <code>by_cases *nom_nou* : *proposition*</code>            | split the proof into two branches depending on whether <code>*proposition*</code> is true or false, using <code>*nom_nou*</code> as name for the respective hypothesis in both branches                                           <tr></tr>|
+| <code>exfalso</code>                                        | apply the rule "False implies anything" a.k.a. "ex falso quodlibet" (replaces the current goal by <code>False</code>)                                                                                                              <tr></tr>|
+| <code>by_contra *nom_nou*</code>                           | start a proof by contradiction, using <code>*nom_nou*</code> as name for the hypothesis that is the negation of the goal                                                                                                          <tr></tr>|
+| <code>push_neg</code>&ensp;(<code>at *hyp*</code>)          | push negations in the goal (or in the hypothesis <code>*hyp*</code>),<br>e.g. change <code>¬ ∀ x, *proposition*</code> to <code>∃ x, ¬ *proposition*</code>                                                                        <tr></tr>|
+| <code>linarith</code>                                       | prove the goal by a linear combination of hypotheses (includes arguments based on transitivity)                                                                                                                                    <tr></tr>|
+| <code>ring</code>                                           | prove the goal by combining the axioms of a commutative (semi)ring                                                                                                                                                                 <tr></tr>|
+| <code>simp</code>&ensp;(<code>at *hyp*</code>)              | simplify the goal (or the hypothesis <code>*hyp*</code>) by combining some standard equalities and equivalences                                                                                                                    <tr></tr>|
+| <code>simp?</code>&ensp;(<code>at *hyp*</code>)             | show which equalities and equivalences would be used to simplify the goal (or the hypothesis <code>*hyp*</code>); give a list of expressions that can be used inside <code>simp only [...]</code>&ensp;(<code>at *hyp*</code>)     <tr></tr>|
+| <code>exact?</code>                                         | search for a single existing lemma which closes the goal, also using local hypotheses                                                                                                                                              <tr></tr>|
+| <code>apply?</code>                                         | search for lemmas whose conclusion matches the current goal; suggest those that may be used with <code>apply</code> or <code>refine</code>                                                                                         <tr></tr>|
+| <code>rw?</code>                                            | TODO                                                                                                                                                                                                                               <tr></tr>|
+| <code>aesop</code>                                          | TODO                                                                                                                                                                                                                                        |
