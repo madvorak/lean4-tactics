@@ -14,13 +14,13 @@ jednotlivé výskyty označují odlišná jména nebo výrazy.
 
 | Logický symbol                          | V cíli                                  | V předpokladu                                                                                                                         |
 |-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| <code>∀</code>&ensp; (pro každé)        | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> or <code>specialize *jmeno* *term*</code>                                                          <tr></tr>|
+| <code>∀</code>&ensp; (pro každé)        | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                        <tr></tr>|
 | <code>∃</code>&ensp; (existuje)         | <code>use *term*</code>                 | <code>cases *term* with</code> <br><code>  \| intro *pojmenovani* *pojmenovani* => ...</code>                                <tr></tr>|
-| <code>→</code>&ensp; (implikuje)        | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> or <code>specialize *jmeno* *term*</code>                                                          <tr></tr>|
-| <code>↔</code>&ensp; (právě tehdy když) | <code>constructor</code>                | <code>rw [*term*]</code> or <code>rw [←*term*]</code>                                                                        <tr></tr>|
+| <code>→</code>&ensp; (implikuje)        | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                        <tr></tr>|
+| <code>↔</code>&ensp; (právě tehdy když) | <code>constructor</code>                | <code>rw [*term*]</code> nebo <code>rw [←*term*]</code>                                                                      <tr></tr>|
 | <code>∧</code>&ensp; (AND)              | <code>constructor</code>                | <code>cases *term* with</code> <br><code>  \| intro *pojmenovani* *pojmenovani* => ...</code>                                <tr></tr>|
-| <code>∨</code>&ensp; (OR)               | <code>left</code> or <code>right</code> | <code>cases *term* with</code> <br><code>  \| inl *pojmenovani* => ...</code> <br><code>  \| inr *pojmenovani* => ...</code> <tr></tr>|
-| <code>¬</code>&ensp; (NOT)              | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> or <code>specialize *jmeno* *term*</code>                                                                   |
+| <code>∨</code>&ensp; (OR)               | <code>left</code> či <code>right</code> | <code>cases *term* with</code> <br><code>  \| inl *pojmenovani* => ...</code> <br><code>  \| inr *pojmenovani* => ...</code> <tr></tr>|
+| <code>¬</code>&ensp; (NOT)              | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                                 |
 
 Závorky v levém sloupci označují volitelné části.
 Účinek těchto částí je v pravém sloupci také napsán v závorkách.
