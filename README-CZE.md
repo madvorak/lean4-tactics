@@ -6,23 +6,26 @@ zatímco <code>*pojmenovani*</code> je nové jméno (právě poskytnuté);
 například jméno známého termu,
 funkce aplikovaná na term,
 aritmetický výraz,
-přepoklad z lokálního kontextu,
+předpoklad z lokálního kontextu,
 nebo nějaké lemma aplikované na cokoliv z toho;
 <code>*tvrzeni*</code> je term typu <code>Prop</code> (například <code>0 < x</code>). 
 Když se některé z těchto slov objeví v jedné buňce vícekrát,
 jednotlivé výskyty označují odlišná jména nebo výrazy.
 
-| Logický symbol                          | V cíli                                  | V předpokladu                                                                                                                         |
-|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| <code>∀</code>&ensp; (pro každé)        | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                        <tr></tr>|
-| <code>∃</code>&ensp; (existuje)         | <code>use *term*</code>                 | <code>cases *term* with</code> <br><code>  \| intro *pojmenovani* *pojmenovani* => ...</code>                                <tr></tr>|
-| <code>→</code>&ensp; (implikuje)        | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                        <tr></tr>|
-| <code>↔</code>&ensp; (právě tehdy když) | <code>constructor</code>                | <code>rw [*term*]</code> nebo <code>rw [←*term*]</code>                                                                      <tr></tr>|
-| <code>∧</code>&ensp; (AND)              | <code>constructor</code>                | <code>cases *term* with</code> <br><code>  \| intro *pojmenovani* *pojmenovani* => ...</code>                                <tr></tr>|
-| <code>∨</code>&ensp; (OR)               | <code>left</code> či <code>right</code> | <code>cases *term* with</code> <br><code>  \| inl *pojmenovani* => ...</code> <br><code>  \| inr *pojmenovani* => ...</code> <tr></tr>|
-| <code>¬</code>&ensp; (NOT)              | <code>intro *pojmenovani*</code>        | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                                 |
+Následující tabulka ukazuje, jak se typicky reaguje na který logický symbol v závislosti
+na jeho umístění (v čele cíle nebo v čele předpokladu).
 
-Závorky v levém sloupci označují volitelné části.
+| Logický symbol                          | V cíli                                    | V předpokladu                                                                                                                     |
+|-----------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| <code>∀</code>&ensp; (pro každé)        | <code>intro *pojmenovani*</code>          | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                    <tr></tr>|
+| <code>∃</code>&ensp; (existuje)         | <code>use *term*</code>                   | <code>obtain ⟨*pojmenovani*, *pojmenovani*⟩ := term</code>                                                               <tr></tr>|
+| <code>→</code>&ensp; (implikuje)        | <code>intro *pojmenovani*</code>          | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                    <tr></tr>|
+| <code>↔</code>&ensp; (právě tehdy když) | <code>constructor</code>                  | <code>rw [*term*]</code> nebo <code>rw [←*term*]</code>                                                                  <tr></tr>|
+| <code>∧</code>&ensp; (AND)              | <code>constructor</code>                  | <code>obtain ⟨*pojmenovani*, *pojmenovani*⟩ := term</code>                                                               <tr></tr>|
+| <code>∨</code>&ensp; (OR)               | <code>left</code> nebo <code>right</code> | <code>cases *term* with</code> <br><code>\| inl *pojmenovani* => ...</code> <br><code>\| inr *pojmenovani* => ...</code> <tr></tr>|
+| <code>¬</code>&ensp; (NOT)              | <code>intro *pojmenovani*</code>          | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                             |
+
+Závorky v levém sloupci následující tabulky označují volitelné části.
 Účinek těchto částí je v pravém sloupci také napsán v závorkách.
 
 | Taktika                                                     | Co dělá                                                                                                                                                                                                                                     |
