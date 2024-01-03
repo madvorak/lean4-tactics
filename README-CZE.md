@@ -18,10 +18,10 @@ na jeho umístění (v čele cíle nebo v čele předpokladu).
 | Logický symbol                          | V cíli                                    | V předpokladu                                                                                                                     |
 |-----------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | <code>∀</code>&ensp; (pro každé)        | <code>intro *pojmenovani*</code>          | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                    <tr></tr>|
-| <code>∃</code>&ensp; (existuje)         | <code>use *term*</code>                   | <code>obtain ⟨*pojmenovani*, *pojmenovani*⟩ := term</code>                                                               <tr></tr>|
+| <code>∃</code>&ensp; (existuje)         | <code>use *term*</code>                   | <code>obtain ⟨*pojmenovani*, *pojmenovani*⟩ := *term*</code>                                                             <tr></tr>|
 | <code>→</code>&ensp; (implikuje)        | <code>intro *pojmenovani*</code>          | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                    <tr></tr>|
 | <code>↔</code>&ensp; (právě tehdy když) | <code>constructor</code>                  | <code>rw [*term*]</code> nebo <code>rw [←*term*]</code>                                                                  <tr></tr>|
-| <code>∧</code>&ensp; (AND)              | <code>constructor</code>                  | <code>obtain ⟨*pojmenovani*, *pojmenovani*⟩ := term</code>                                                               <tr></tr>|
+| <code>∧</code>&ensp; (AND)              | <code>constructor</code>                  | <code>obtain ⟨*pojmenovani*, *pojmenovani*⟩ := *term*</code>                                                             <tr></tr>|
 | <code>∨</code>&ensp; (OR)               | <code>left</code> nebo <code>right</code> | <code>cases *term* with</code> <br><code>\| inl *pojmenovani* => ...</code> <br><code>\| inr *pojmenovani* => ...</code> <tr></tr>|
 | <code>¬</code>&ensp; (NOT)              | <code>intro *pojmenovani*</code>          | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                             |
 
