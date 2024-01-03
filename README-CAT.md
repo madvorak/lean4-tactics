@@ -14,11 +14,11 @@ no vol dir que els noms o expressions hagin de ser les mateixes.
 | Símbol lògic                        | Apareix a l'objectiu                        | Apareix en una hipòtesi                                                                                                           |
 |---------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | <code>∀</code>&ensp; (per tot)        | <code>intro *nom_nou*</code>           | <code>apply *expr*</code> o <code>specialize *nom* *expr*</code>                                                     <tr></tr>|
-| <code>∃</code>&ensp; (existeix)   | <code>use *expr*</code>                 | <code>cases *expr* with</code> <br><code>  \| intro *nom_nou* *nom_nou* => ...</code>                                <tr></tr>|
+| <code>∃</code>&ensp; (existeix)   | <code>use *expr*</code>                 | <code>obtain ⟨*nom_nou*, *nom_nou*⟩ := *expr*</code>                                <tr></tr>|
 | <code>→</code>&ensp; (implica)        | <code>intro *nom_nou*</code>           | <code>apply *expr*</code> o <code>specialize *nom* *expr*</code>                                                     <tr></tr>|
 | <code>↔</code>&ensp; (si i només si) | <code>constructor</code>                | <code>rw [*expr*]</code> o <code>rw [←*expr*]</code>                                                                 <tr></tr>|
-| <code>∧</code>&ensp; (i)            | <code>constructor</code>                | <code>cases *expr* with</code> <br><code>  \| intro *nom_nou* *nom_nou* => ...</code>                                <tr></tr>|
-| <code>∨</code>&ensp; (o)             | <code>left</code> or <code>right</code> | <code>cases *expr* with</code> <br><code>  \| inl *nom_nou* => ...</code> <br><code>  \| inr *nom_nou* => ...</code> <tr></tr>|
+| <code>∧</code>&ensp; (i)            | <code>constructor</code>                | <code>obtain ⟨*nom_nou*, *nom_nou*⟩ := *expr*</code>                                <tr></tr>|
+| <code>∨</code>&ensp; (o)             | <code>left</code> o <code>right</code> | <code>cases *expr* with</code> <br><code>\| inl *nom_nou* => ...</code> <br><code>\| inr *nom_nou* => ...</code> <tr></tr>|
 | <code>¬</code>&ensp; (no)            | <code>intro *nom_nou*</code>           | <code>apply *expr*</code> o <code>specialize *nom* *expr*</code>                                                              |
 
 A l'esquerra de la taula següent les parts entre parèntesis són opcionals.
