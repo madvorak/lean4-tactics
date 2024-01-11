@@ -12,6 +12,8 @@ nebo nějaké lemma aplikované na cokoliv z toho;
 Když se některé z těchto slov objeví v jedné buňce vícekrát,
 jednotlivé výskyty označují odlišná jména nebo výrazy.
 
+## Taktiky pro logické symboly
+
 Následující tabulka ukazuje, jak typicky reagujeme na který logický symbol v závislosti
 na jeho umístění (v čele cíle nebo v čele předpokladu).
 
@@ -27,6 +29,8 @@ na jeho umístění (v čele cíle nebo v čele předpokladu).
 
 Závorky v levém sloupci následující tabulky označují volitelné části.
 Účinek těchto částí je v pravém sloupci také napsán v závorkách.
+
+## Obecně užitečné taktiky
 
 | Taktika                                                     | Co dělá                                                                                                                                                                                                                                     |
 |-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
