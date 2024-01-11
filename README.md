@@ -11,6 +11,10 @@ or a lemma applied to any of these;
 When one of these words appears twice in the same cell,
 the appearances do not designate the same name or the same expression.
 
+## Tactics for logical symbols
+
+The following table shows usual responses to logical symbols based on their placement.
+
 | Logical symbol                        | Appears in goal                         | Appears in hypothesis                                                                                                       |
 |---------------------------------------|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | <code>∀</code>&ensp; (for all)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                 <tr></tr>|
@@ -21,8 +25,10 @@ the appearances do not designate the same name or the same expression.
 | <code>∨</code>&ensp; (or)             | <code>left</code> or <code>right</code> | <code>cases *expr* with</code> <br><code>\| inl *new_name* => ...</code> <br><code>\| inr *new_name* => ...</code> <tr></tr>|
 | <code>¬</code>&ensp; (not)            | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                          |
 
-In the left-hand column of the following table, the parts in parentheses are optional.
-The effect of these parts is also written in parentheses.
+## Generally useful tactics
+
+In the left-hand column, the parts in parentheses are optional.
+The effect of these parts in the right-hand column is also written in parentheses.
 
 | Tactic                                                      | Effect                                                                                                                                                                                                                                      |
 |-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
