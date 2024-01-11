@@ -27,10 +27,10 @@ na jeho umístění (v čele cíle nebo v čele předpokladu).
 | <code>∨</code>&ensp; (OR)               | <code>left</code> nebo <code>right</code> | <code>cases *term* with</code> <br><code>\| inl *pojmenovani* => ...</code> <br><code>\| inr *pojmenovani* => ...</code> <tr></tr>|
 | <code>¬</code>&ensp; (NOT)              | <code>intro *pojmenovani*</code>          | <code>apply *term*</code> nebo <code>specialize *jmeno* *term*</code>                                                             |
 
-Závorky v levém sloupci následující tabulky označují volitelné části.
-Účinek těchto částí je v pravém sloupci také napsán v závorkách.
-
 ## Obecně užitečné taktiky
+
+Závorky v levém sloupci označují volitelné části.
+Účinek těchto částí je v pravém sloupci také napsán v závorkách.
 
 | Taktika                                                     | Co dělá                                                                                                                                                                                                                                     |
 |-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
