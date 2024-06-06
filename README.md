@@ -1,4 +1,4 @@
-# Lean 4 tactics — overview for beginners
+# Lean 4 spellbook — tactics overview for beginners
 
 In the following tables, <code>*name*</code> always refers to a name already known to Lean
 while <code>*new_name*</code> is a new name provided by the user;
