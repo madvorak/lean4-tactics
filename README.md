@@ -17,13 +17,13 @@ The following table shows usual responses to logical symbols based on their plac
 
 | Logical symbol                        | Appears in goal                         | Appears in hypothesis                                                                                                       |
 |---------------------------------------|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| <code>∀</code>&ensp; (for all)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                 <tr></tr>|
 | <code>∃</code>&ensp; (there exists)   | <code>use *expr*</code>                 | <code>obtain ⟨*new_name*, *new_name*⟩ := *expr*</code>                                                             <tr></tr>|
+| <code>∀</code>&ensp; (for all)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                 <tr></tr>|
+| <code>¬</code>&ensp; (not)            | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                 <tr></tr>|
 | <code>→</code>&ensp; (implies)        | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                 <tr></tr>|
 | <code>↔</code>&ensp; (if and only if) | <code>constructor</code>                | <code>rw [*expr*]</code> or <code>rw [←*expr*]</code>                                                             <tr></tr>|
 | <code>∧</code>&ensp; (and)            | <code>constructor</code>                | <code>obtain ⟨*new_name*, *new_name*⟩ := *expr*</code>                                                             <tr></tr>|
-| <code>∨</code>&ensp; (or)             | <code>left</code> or <code>right</code> | <code>cases *expr* with</code> <br><code>\| inl *new_name* => ...</code> <br><code>\| inr *new_name* => ...</code> <tr></tr>|
-| <code>¬</code>&ensp; (not)            | <code>intro *new_name*</code>           | <code>apply *expr*</code> or <code>specialize *name* *expr*</code>                                                          |
+| <code>∨</code>&ensp; (or)             | <code>left</code> or <code>right</code> | <code>cases *expr* with</code> <br><code>\| inl *new_name* => ...</code> <br><code>\| inr *new_name* => ...</code>         |
 
 ## Generally useful tactics
 
